@@ -49,9 +49,7 @@ int main(void)
 			USR_B_Count++
 		}
 		// @markusskjothaug
-		if(){
-			
-		}
+		// Det funker som en drøm å kode i GitHub!
 
 		if (USR_A_Count == 5){
 			USR_A_Win();
