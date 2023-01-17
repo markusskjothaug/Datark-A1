@@ -48,6 +48,7 @@ int main(void)
 			PORTB = (PORTB << 1) + 0b00000001;
 			USR_B_Count++
 		}
+		// @markusskjothaug
 		
 		if (USR_A_Count == 5){
 			USR_A_Win();
