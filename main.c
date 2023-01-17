@@ -1,6 +1,10 @@
 /*
  * Assignment1.c
- *
+ * In a group of two, create a game in which two people compete on how fast they can light on their set of LEDs. Each user will be assigned a press button and his set of LEDs.
+ * As a user presses the button his assigned LED will lit up one after the other. The person who switch on all his LEDs first wins.
+ * The winner will be exposed by flashing their assigned LEDs for a while, before reseting the system for a new competation.
+ * 
+ * Your program should make use of arrays, functions, and for-loop. A report should be submitted here, and the hardware will be presented in the classroom. 
  * Created: 16.01.2023 15:01:44
  * Author : Markus F. Skjøthaug
  */ 
