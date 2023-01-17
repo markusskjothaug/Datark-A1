@@ -14,6 +14,8 @@
 #include <util/delay.h>
 
 
+// Making functions that runs if a spesific user wins the game
+
 void USR_A_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTA = 0b00011111;
@@ -29,20 +31,22 @@ void USR_B_Win(){
 }
 
 
+
+
 int main(void)
 {
-	// USR_A
+	// USR_A parametres/variables
     DDRA = 0b00011111;
 	PORTA = 0b00000000;
 	int USR_A_Count = 0;
 	
-	//USR_B
+	//USR_B parametres/variables
     DDRB = 0b00011111;
 	PORTB = 0b00000000;
 	int USR_B_Count = 0;
 
     while (1){
-		//USR_A
+		//USR_A if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on. It also increments the value needed to win the game. 
 		if ((PORTA & 0b00100000) == 0b00100000){
 			PORTA = (PORTA << 1) + 0b00000001;
 			USR_A_Count++;
@@ -50,7 +54,7 @@ int main(void)
 		//USR_B
 		if ((PORTB & 0b00100000) == 0b00100000){
 			PORTB = (PORTB << 1) + 0b00000001;
-			USR_B_Count++
+			USR_B_Count++;
 		}
 		// @markusskjothaug
 		// Det funker som en drøm å kode i GitHub!
@@ -64,6 +68,7 @@ int main(void)
 		
     }
 	
+	// kode som ikke er skrevet enda, vet ikke om det passer inn i koden.
 	while(!win){
 		if (usrAint == 0){
 			PORTA = 0;
