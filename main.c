@@ -32,9 +32,9 @@ void Victory_A(){
 
 void USR_B_Win(){
 	for (int i = 0; i < 10; i++){
-		PORTC = 0b00011111;
+		PORTD = 0b00011111;
 		_delay_ms(500);
-		PORTC = 0b00000000;
+		PORTD = 0b00000000;
 	}
 }
 void Victory_B(){
@@ -50,8 +50,8 @@ int main(void)
 	int USR_A_TOT_WINS = 0;
 	
 	//USR_B parametres/variables
-    DDRC = 0b00011111;
-	PORTC = 0b00000000;
+    DDRD = 0b00011111;
+	PORTD = 0b00000000;
 	int USR_B_Count = 0;
 	int USR_B_TOT_WINS = 0;
 
@@ -63,8 +63,8 @@ int main(void)
 			USR_A_Count++;
 		}
 		//USR_B
-		if (PINC & (1 << 5)){
-			PORTC = (PORTC << 1) + 0b00000001;
+		if (PIND & (1 << 5)){
+			PORTD = (PORTD << 1) + 0b00000001;
 			USR_B_Count++;
 		}
 		// @markusskjothaug
@@ -79,7 +79,7 @@ int main(void)
 		}		
     }
 
-	// If a player wins 4 rounds in total, the victoryfunctions will run. 
+	// If a player wins 4 rounds in total, the victoryfunctions will run.
 	if (USR_A_TOT_WINS == 4){
 		Victory_A();
 	} else if (USR_B_TOT_WINS == 4){
