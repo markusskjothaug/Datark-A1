@@ -69,11 +69,14 @@ int main(void)
     }
 	
 	// kode som ikke er skrevet enda, vet ikke om det passer inn i koden.
+
+	/*
 	while(!win){
 		if (usrAint == 0){
 			PORTA = 0;
 		} elif (usraint ==1)
-		PORTA = 0b00001111
+		PORTA = 0b00001111;
 	}
+	*/
 }
 
