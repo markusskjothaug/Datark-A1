@@ -78,7 +78,4 @@ int main(void)
 	} else if (USR_B_TOT_WINS == 4){
 		Victory_B();
 	}
-	
-	
-
 }
