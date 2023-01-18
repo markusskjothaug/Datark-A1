@@ -10,7 +10,7 @@
  */ 
 
 #include <avr/io.h>
-#include F_CPU 1000000
+#define F_CPU 1000000
 #include <util/delay.h>
 
 const NUMBERTOWIN = 5;
