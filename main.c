@@ -19,6 +19,8 @@ const int NUMBERTOWIN = 3;
 
 //IDEA: implement function that displays the total number of wins per user on the LED's mid games. A countdown blinker would also be cool.
 
+//IDEA: bruke mattebiblioteket og 10^n for å ligthe de forskjellige pærene
+
 void USR_A_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTA = 0b00011111;
@@ -59,7 +61,7 @@ int main(void)
 		/*USR_A: if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on.
 		* It also increments the value needed to win the game. */
 		if (!(PINA & (1 << 5))){
-			PORTA = (PORTA << 1) + 0b00000001;
+			PORTA += 0b00000001;
 			USR_A_Count++;
 		}
 		//USR_B
