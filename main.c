@@ -58,12 +58,12 @@ int main(void)
     while ((USR_A_TOT_WINS != 4) | (USR_B_TOT_WINS != 4)){
 		/*USR_A: if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on.
 		* It also increments the value needed to win the game. */
-		if (PORTA &= 0b00100000){
+		if (PINA &= 0b00100000){
 			PORTA = (PORTA << 1) + 0b00000001;
 			USR_A_Count++;
 		}
 		//USR_B
-		if (PORTC &= 0b00100000){
+		if (PINC &= 0b00100000){
 			PORTC = (PORTC << 1) + 0b00000001;
 			USR_B_Count++;
 		}
