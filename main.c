@@ -45,13 +45,13 @@ int main(void)
 {
 	// USR_A parametres/variables
     DDRA = 0b00011111;
-	PORTA = 0b00000000;
+	PORTA = 0b00100000;
 	int USR_A_Count = 0;
 	int USR_A_TOT_WINS = 0;
 	
 	//USR_B parametres/variables
     DDRD = 0b00011111;
-	PORTD = 0b00000000;
+	PORTD = 0b00100000;
 	int USR_B_Count = 0;
 	int USR_B_TOT_WINS = 0;
 
