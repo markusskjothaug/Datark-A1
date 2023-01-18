@@ -18,12 +18,17 @@ const input_pushed = 0b00100000;
 
 // Making functions that runs if a spesific user wins the game
 
+//IDEA: implement function that displays the total number of wins per user on the LED's mid games. A countdown blinker would also be cool.
+
 void USR_A_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTA = 0b00011111;
 		_delay_ms(500);
 		PORTA = 0b00000000;	
 	}
+}
+void Victory_A(){
+	//Code that flashes the Victory fanfare!
 }
 
 void USR_B_Win(){
@@ -33,9 +38,9 @@ void USR_B_Win(){
 		PORTB = 0b00000000;
 	}
 }
-
-
-
+void Victory_B(){
+	//Victory fanfare!!
+}
 
 int main(void)
 {
@@ -52,7 +57,8 @@ int main(void)
 	int USR_B_TOT_WINS = 0;
 
     while ((USR_A_TOT_WINS != 4) | (USR_B_TOT_WINS != 4)){
-		//USR_A if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on. It also increments the value needed to win the game. 
+		/*USR_A: if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on.
+		* It also increments the value needed to win the game. */
 		if (PORTA &= input_pushed){
 			PORTA = (PORTA << 1) + 0b00000001;
 			USR_A_Count++;
@@ -73,6 +79,8 @@ int main(void)
 			USR_B_TOT_WINS++;
 		}		
     }
+
+	// If a player wins 4 rounds in total, the victoryfunctions will run. 
 	if (USR_A_TOT_WINS == 4){
 		Victory_A();
 	} else if (USR_B_TOT_WINS == 4){
