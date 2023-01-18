@@ -14,12 +14,17 @@
 #include <util/delay.h>
 
 
+const NUMBERTOWIN = 5;
+
+
 // Making functions that runs if a spesific user wins the game
 
 void USR_A_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTA = 0b00011111;
 		_delay_ms(500);
+		PORTA = 0b00000000;
+		
 	}
 }
 
@@ -27,6 +32,7 @@ void USR_B_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTB = 0b00011111;
 		_delay_ms(500);
+		PORTB = 0b00000000;
 	}
 }
 
@@ -39,13 +45,15 @@ int main(void)
     DDRA = 0b00011111;
 	PORTA = 0b00000000;
 	int USR_A_Count = 0;
+	int USR_A_TOT_WINS = 0;
 	
 	//USR_B parametres/variables
     DDRB = 0b00011111;
 	PORTB = 0b00000000;
 	int USR_B_Count = 0;
+	int USR_B_TOT_WINS = 0;
 
-    while (1){
+    while ((USR_A_TOT_WINS != 4) | (USR_B_TOT_WINS != 4)){
 		//USR_A if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on. It also increments the value needed to win the game. 
 		if ((PORTA & 0b00100000) == 0b00100000){
 			PORTA = (PORTA << 1) + 0b00000001;
@@ -59,24 +67,12 @@ int main(void)
 		// @markusskjothaug
 		// Det funker som en drøm å kode i GitHub!
 
-		if (USR_A_Count == 5){
+		if (USR_A_Count == NUMBERTOWIN){
 			USR_A_Win();
-		} else if (USR_B_Count == 5){
+			USR_A_TOT_WINS++;
+		} else if (USR_B_Count == NUMBERTOWIN){
 			USR_B_Win();
-		}
-		
-		
+			USR_B_TOT_WINS++;
+		}		
     }
-	
-	// kode som ikke er skrevet enda, vet ikke om det passer inn i koden. blabla
-
-	/*
-	while(!win){
-		if (usrAint == 0){
-			PORTA = 0;
-		} elif (usraint ==1)
-		PORTA = 0b00001111;
-	}
-	*/
 }
-
