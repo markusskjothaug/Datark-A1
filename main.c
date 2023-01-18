@@ -15,6 +15,7 @@
 
 
 const NUMBERTOWIN = 5;
+const input_pushed = 0b00100000;
 
 
 // Making functions that runs if a spesific user wins the game
@@ -55,12 +56,12 @@ int main(void)
 
     while ((USR_A_TOT_WINS != 4) | (USR_B_TOT_WINS != 4)){
 		//USR_A if USR_A pushes the button, the lights will light up one at a time, and the lights will stay on. It also increments the value needed to win the game. 
-		if ((PORTA & 0b00100000) == 0b00100000){
+		if (PORTA &= input_pushed){
 			PORTA = (PORTA << 1) + 0b00000001;
 			USR_A_Count++;
 		}
 		//USR_B
-		if ((PORTB & 0b00100000) == 0b00100000){
+		if (PORTB &= input_pushed){
 			PORTB = (PORTB << 1) + 0b00000001;
 			USR_B_Count++;
 		}
