@@ -68,7 +68,7 @@ int main(void)
 		
     }
 	
-	// kode som ikke er skrevet enda, vet ikke om det passer inn i koden.
+	// kode som ikke er skrevet enda, vet ikke om det passer inn i koden. blabla
 
 	/*
 	while(!win){
