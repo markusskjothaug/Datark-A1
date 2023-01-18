@@ -13,10 +13,8 @@
 #include F_CPU 1000000
 #include <util/delay.h>
 
-
 const NUMBERTOWIN = 5;
 const input_pushed = 0b00100000;
-
 
 // Making functions that runs if a spesific user wins the game
 
@@ -24,8 +22,7 @@ void USR_A_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTA = 0b00011111;
 		_delay_ms(500);
-		PORTA = 0b00000000;
-		
+		PORTA = 0b00000000;	
 	}
 }
 
@@ -76,4 +73,12 @@ int main(void)
 			USR_B_TOT_WINS++;
 		}		
     }
+	if (USR_A_TOT_WINS == 4){
+		Victory_A();
+	} else if (USR_B_TOT_WINS == 4){
+		Victory_B();
+	}
+	
+	
+
 }
