@@ -21,6 +21,8 @@ const int NUMBERTOWIN = 3;
 
 //IDEA: bruke mattebiblioteket og 10^n for å ligthe de forskjellige pærene
 
+//IDEA: bruk bit_is_clear(PinName, PinNumber)
+
 void USR_A_Win(){
 	for (int i = 0; i < 10; i++){
 		PORTA = 0b00011111;
